@@ -15,3 +15,19 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 
+WebUI.openBrowser(GlobalVariable.testUrl)
+
+WebUI.setText(findTestObject('FB Login Object/fb_username'), username)
+
+WebUI.setText(findTestObject('FB Login Object/fb_password'), password)
+
+WebUI.click(findTestObject('FB Login Object/fb_login'))
+
+not_run: WebUI.closeBrowser()
+
+if (WebUI.verifyElementPresent(findTestObject('Object Repository/FB Login Object/fb_user_error'), 30, FailureHandling.OPTIONAL)) {
+    WebUI.comment('Error Test Passed')
+} else {
+    WebUI.comment('Username is Right')
+}
+
