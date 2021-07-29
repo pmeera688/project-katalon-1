@@ -23,11 +23,11 @@ WebUI.setText(findTestObject('FB Login Object/fb_password'), password)
 
 WebUI.click(findTestObject('FB Login Object/fb_login'))
 
-not_run: WebUI.closeBrowser()
-
 if (WebUI.verifyElementPresent(findTestObject('Object Repository/FB Login Object/fb_user_error'), 30, FailureHandling.OPTIONAL)) {
     WebUI.comment('Error Test Passed')
 } else {
     WebUI.comment('Username is Right')
 }
+
+not_run: WebUI.closeBrowser()
 
